@@ -1,5 +1,97 @@
 # Changelog
 
+## v0.20.0
+
+  Updated dependencies
+  * [nerves_system_br v0.17.0](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.17.0)
+  * [nerves_toolchain v0.13.0](https://github.com/nerves-project/toolchains/releases/tag/v0.13.0)
+  * [nerves v0.9.0](https://github.com/nerves-project/nerves/releases/tag/v0.9.0)
+
+## v0.19.1
+
+  Updated dependencies
+  * [nerves_system_br v0.16.3](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.16.3)
+    This fixes the call to otp_build so that it always uses Buildroot's version
+    the autoconf tools.
+
+## v0.19.0
+
+  Updated dependencies
+  * [nerves_system_br v0.16.1-2017-11](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.16.1-2017-11)
+
+  * Enhancements
+    * Reboot automatically if Erlang VM exits - This is consistent with other
+      Nerves systems. See rootfs_overlay/etc/erlinit.config if undesired.
+    * Start running nerves_system_linter to check for configuration errors.
+    * Disable console blanking for HDMI to make it easier to capture error messages.
+    * Automount the boot partition readonly at `/boot`
+    * Support for reverting firmware.
+
+      See [Reverting Firmware](https://hexdocs.pm/nerves_runtime/readme.html#reverting-firmware) for more info on reverting firmware.
+
+      See [fwup-revert.conf](https://github.com/nerves-project/nerves_system_rpi/blob/master/fwup-revert.conf) for more information on how fwup handles reverting.
+
+## v0.18.0
+
+  Updated dependencies
+  * [nerves_system_br v0.15.0](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.15.0)
+  * [toolchain v0.12.1](https://github.com/nerves-project/toolchains/releases/tag/v0.12.1)
+
+  * Enhancements
+    * Support for nerves 0.8. Moves nerves.exs into mix.exs
+    * Support for the Raspberry Pi Compute Module
+    * Select ARM Cortex A53 as CPU for Buildroot
+
+## v0.17.1
+  Updated dependencies
+  * [nerves_system_br v0.14.1](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.14.1)
+
+## v0.17.0
+
+  Updated dependencies
+  * [nerves_system_br v0.14.0](https://github.com/nerves-project/nerves_system_br/releases/tag/v0.14.0)
+    * [Buildroot 2017.08](https://git.busybox.net/buildroot/plain/CHANGES?id=2017.08)
+    * [fwup 0.17.0](https://github.com/fhunleth/fwup/releases/tag/v0.17.0)
+    * [erlinit 1.2.0](https://github.com/nerves-project/erlinit/releases/tag/v1.2.0)
+    * [nbtty 0.3.0](https://github.com/fhunleth/nbtty/releases/tag/v0.3.0)
+
+  * Enhancements
+    * Add global patch directory
+
+    This is required to pull in the e2fsprogs patch that's needed now that
+    util-linux's uuid_generate function calls getrandom and can block
+    indefinitely for the urandom pool to initialize
+
+## v0.16.1
+
+  Updated dependencies
+  * nerves_system_br v0.13.7
+
+## v0.16.0
+
+  This release contains an updated toolchain with Linux 4.1 Headers.
+  You will have to clean and compile any c/c++ code in your project and
+  dependencies. Failure to do so will result in an error when producing firmware.
+
+  * nerves_system_br v0.13.5
+    * fwup 0.15.4
+
+  * Nerves toolchain v0.11.0
+    https://github.com/nerves-project/toolchains/releases/tag/v0.11.0
+
+## v0.15.0
+
+  * nerves_system_br v0.13.3
+    * erlinit 1.1.4
+
+  * New features
+    * Firmware updates verify that they're updating the right target. If the target
+      doesn't say that it's an `rpi3` through the firmware metadata, the update
+      will fail.
+    * Added meta-misc and meta-vcs-identifier to the `fwup.conf` metadata for use
+      by users and for the regression test framework
+    * Use String.trim instead of String.strip to silence Elixir 1.5 warnings
+
 ## v0.14.0
 
   * nerves_system_br v0.13.2
