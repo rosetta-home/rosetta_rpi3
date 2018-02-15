@@ -42,7 +42,7 @@ defmodule NervesSystemRpi3.Mixfile do
 
   defp deps do
     [
-      {:nerves, "~> 0.9", runtime: false },
+      {:nerves, github: "nerves-project/nerves", branch: "master", runtime: false, override: true },
       {:nerves_system_br, "0.17.0", runtime: false},
       {:nerves_toolchain_arm_unknown_linux_gnueabihf, "~> 0.13.0", runtime: false},
       {:nerves_system_linter, "~> 0.2.2", runtime: false},
